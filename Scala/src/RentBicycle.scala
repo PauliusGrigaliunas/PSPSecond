@@ -1,4 +1,5 @@
-trait RentCar {
+trait RentBicycle {
+
   var Time: Double
   var Distance: Double
 
@@ -7,5 +8,4 @@ trait RentCar {
   def CountThePrice(): Double
 
   def AdditionalServices(): Boolean
-
 }

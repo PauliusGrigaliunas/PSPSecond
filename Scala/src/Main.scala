@@ -4,7 +4,10 @@ object Main {
     while(i < 10){
       println(i)
       i += 1
+
+      var x = new Car("Opel", "Diesel", 2, 5, 0.1)
+
+
     }
   }
-
 }
