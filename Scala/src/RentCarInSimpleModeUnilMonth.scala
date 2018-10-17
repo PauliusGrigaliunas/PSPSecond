@@ -1,10 +1,42 @@
-class RentCarInSimpleModeUnilMonth
-( car : Car , time : Double,  distance : Double){
+class RentCarInSimpleModeUnilMonth(
+                                    override var Car: Car,
+                                    override var Time: Double,
+                                    override var Distance: Double)
+extends RentCar with SimpleMode {
 
-  def CountThePrice: Double = car.Time * time * 0.02
+  override def Discount(): Double ={
+    {
+      if (Car.Ecotype == "Electricity" || Car.Ecotype == "Eco") return CountThePrice() * 0.18
+      else return 0
+    }
+  }
 
-  def Discount: String = ???
+  override def CountThePrice() = Car.TimeTarif * Time * 0.02;
 
-  def AditionalService: Boolean = ???
+  override def AdditionalServices() : Boolean =
+  {
+    if (Car.NumberOfSeats >= 4) return true
+    else return false
+  }
 
+  override def PollutionAmount( car: Car, distance: Double ): Double =         {
+    if (Car.Ecotype == "Electricity" || Car.Ecotype == "Eco") return 0;
+    else return distance * car.Engine * 0.02;
+  }
+
+  override def MakeADeal() = {
+
+    System.out.println();
+    System.out.println("Name - " + Car.Name);
+    System.out.println("Price - " +
+      BigDecimal(CountThePrice()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+       + "€");
+    System.out.println("Discount - " +
+      BigDecimal(Discount()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+      + "€");
+    System.out.println("Real price - " +
+      BigDecimal(CountThePrice()- Discount()).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+      + "€");
+    System.out.println("AdditionalService - " + PollutionAmount( Car, Distance ).toString);
+  }
 }

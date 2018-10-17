@@ -1,11 +1,14 @@
 trait RentBicycle {
 
+  var bicycle: Bicycle
+
   var Time: Double
-  var Distance: Double
 
   def Discount(): Double
 
   def CountThePrice(): Double
 
   def AdditionalServices(): Boolean
+
+  def  MakeADeal(): Unit
 }

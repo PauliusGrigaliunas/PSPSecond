@@ -1,3 +1,3 @@
 trait SimpleMode {
-  def PollutionAmount( car: Car, distance: Double  ): Double
+  def PollutionAmount( car: Car, distance: Double ): Double
 }
