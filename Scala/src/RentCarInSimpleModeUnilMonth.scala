@@ -2,27 +2,8 @@ class RentCarInSimpleModeUnilMonth(
                                     override var Car: Car,
                                     override var Time: Double,
                                     override var Distance: Double)
-extends RentCar with SimpleMode {
+extends RentCarUntilDay with SimpleMode {
 
-  override def Discount(): Double ={
-    {
-      if (Car.Ecotype == "Electricity" || Car.Ecotype == "Eco") return CountThePrice() * 0.18
-      else return 0
-    }
-  }
-
-  override def CountThePrice() = Car.TimeTarif * Time * 0.02;
-
-  override def AdditionalServices() : Boolean =
-  {
-    if (Car.NumberOfSeats >= 4) return true
-    else return false
-  }
-
-  override def PollutionAmount( car: Car, distance: Double ): Double =         {
-    if (Car.Ecotype == "Electricity" || Car.Ecotype == "Eco") return 0;
-    else return distance * car.Engine * 0.02;
-  }
 
   override def MakeADeal() = {
 
