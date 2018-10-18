@@ -1,9 +1,9 @@
 object Main {
   def main (args: Array[String]): Unit ={
-    val AudiA6 = new CarSample("Audi A6", "Diesel", 2.0, 5, 0.2)
-    val BMV535 = new CarSample("BMW535", "Diesel", 3.0, 5, 0.3)
-    val Tesla = new CarSample("Tesla", "Electricity", 1.0, 2, 0.18)
-    val BMX = new BicycleSample("BMX", "ECO", 1, 0.25)
+    val AudiA6 = new Car("Audi A6", "Diesel", 2.0, 5, 0.2)
+    val BMV535 = new Car("BMW535", "Diesel", 3.0, 5, 0.3)
+    val Tesla = new Car("Tesla", "Electricity", 1.0, 2, 0.18)
+    val BMX = new Bicycle("BMX", "Eco", 1, 0.17)
 
 
     val rentFirstCar = new RentCarInSimpleModeUntilDay(AudiA6, 10, 5)

@@ -1,6 +1,6 @@
-trait Bicycle {
-  var Name: String
-  var Ecotype : String
-  var NumberOfSeats : Int
-  var TimeTarif : Double
+class Bicycle(override var Name: String,
+              override var Ecotype: String,
+              override var NumberOfSeats: Int,
+              override var TimeTarif: Double)
+  extends AVehile {
 }
